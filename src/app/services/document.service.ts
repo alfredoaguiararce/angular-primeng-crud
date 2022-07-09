@@ -30,8 +30,26 @@ export class DocumentService {
   }
   
   getDocuments(): Observable<Document[]> {
+    // Get all documents in database
     return this.http.get<Document[]>(this.apiUrl).pipe(
       tap(data => console.log(data)),
+      catchError(this.handleError)
+    );
+  }
+
+  getDocumentById(id: number): Observable<Document> {
+    // Get single document 
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Document>(url).pipe(
+      tap(data => console.log(data)),
+      catchError(this.handleError)
+    );
+  }
+
+  deleteDocumentById(id: number): Observable<Document> {
+    // Delete single document
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<Document>(url, this.httpOptions).pipe(
       catchError(this.handleError)
     );
   }

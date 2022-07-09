@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   // Global variable to manage the loaded data.
   documents: Document[] = [];
   title: string = 'tabla';
+  singleDocument: Document;
 
   constructor(
     // Use service to load Data
@@ -23,7 +24,9 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
       this.loadDocuments()
       console.log('init app module');
-      console.log(this.documents)
+      console.log(this.documents);
+      this.getSingleDocument();
+      this.delete();
   }
 
   loadDocuments(): void{
@@ -31,5 +34,19 @@ export class AppComponent implements OnInit{
       this.documents = data;
     });
   }
+
+  getSingleDocument() {
+    this.documentService.getDocumentById(2).subscribe(data => {
+      this.singleDocument = data;
+    });
+  }
+
+  delete() {
+    this.documentService.deleteDocumentById(5).subscribe(data => {
+      this.loadDocuments()
+    });
+  }
+
+
 
 }
