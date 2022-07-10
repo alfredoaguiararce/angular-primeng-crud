@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Document } from '../models/document.model';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 
+/**
+ * This class implements logic to create the fakeAPI.
+ * @returns Document[ ] Used as a JSON response for an API request.
+ */
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +20,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
       {
           id: 0,
           isActive: true,
-          title: "Report 1",
+          title: "Report 0",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
           dateCreated: "17/10/2022",
@@ -34,7 +38,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
       {
           id: 2,
           isActive: true,
-          title: "Report 1",
+          title: "Report 2",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
           dateCreated: "17/10/2022",
@@ -43,7 +47,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
       {
           id: 3,
           isActive: true,
-          title: "Report 1",
+          title: "Report 3",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
           dateCreated: "17/10/2022",
@@ -52,7 +56,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
       {
           id: 4,
           isActive: true,
-          title: "Report 1",
+          title: "Report 4",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
           dateCreated: "17/10/2022",

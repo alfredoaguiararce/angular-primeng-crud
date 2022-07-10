@@ -14,7 +14,25 @@ export class AppComponent implements OnInit{
   // Global variable to manage the loaded data.
   documents: Document[] = [];
   title: string = 'tabla';
-  singleDocument: Document;
+  singleDocument: Document = {
+    id: 0,
+    isActive: false,
+    title: "Reporte template",
+    category: "Create Maker GB",
+    author: "template",
+    dateCreated: "Template",
+    languaje: "English",
+  };
+  
+  documentTemplate: Document = {
+    id: 0,
+    isActive: false,
+    title: "Reporte template",
+    category: "Create Maker GB",
+    author: "template",
+    dateCreated: "Template",
+    languaje: "English",
+  };
 
   constructor(
     // Use service to load Data
@@ -27,6 +45,10 @@ export class AppComponent implements OnInit{
       console.log(this.documents);
       this.getSingleDocument();
       this.delete();
+      this.updateUser();
+      this.addUser();
+      this.addUser();
+      this.addUser();
   }
 
   loadDocuments(): void{
@@ -42,11 +64,30 @@ export class AppComponent implements OnInit{
   }
 
   delete() {
-    this.documentService.deleteDocumentById(5).subscribe(data => {
+    this.documentService.deleteDocumentById(3).subscribe(data => {
       this.loadDocuments()
     });
   }
 
+  idtoUpdate = 5;
+  updateUser() {
+    this.documentService.getDocumentById(this.idtoUpdate).subscribe(data => {
+      this.singleDocument = data;
+      this.singleDocument.title = 'Updated title';
+      this.documentService.updateDocumentById(this.singleDocument).subscribe(data1 => {
+        this.loadDocuments();
+      });
+    });
+  }
+
+  addUser() {
+
+    this.documentService.addDocument(this.documentTemplate).subscribe(data => {
+      this.singleDocument = data;
+      console.log("New document id: " + this.singleDocument.id);
+    });
+    this.loadDocuments();
+  }
 
 
 }
