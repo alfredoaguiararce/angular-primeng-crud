@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentService } from './services/document.service';
-import { Document } from './models/document.model';
+import { Document, fetchDocument, updateDocument } from './models/document.model';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +14,7 @@ export class AppComponent implements OnInit{
   // Global variable to manage the loaded data.
   documents: Document[] = [];
   title: string = 'tabla';
-  singleDocument: Document = {
-    id: 0,
+  singleDocument: updateDocument = {
     isActive: false,
     title: "Reporte template",
     category: "Create Maker GB",
@@ -24,8 +23,7 @@ export class AppComponent implements OnInit{
     languaje: "English",
   };
   
-  documentTemplate: Document = {
-    id: 0,
+  documentTemplate: updateDocument = {
     isActive: false,
     title: "Reporte template",
     category: "Create Maker GB",
@@ -34,6 +32,10 @@ export class AppComponent implements OnInit{
     languaje: "English",
   };
 
+  documentTUpdated: updateDocument = {
+    isActive: false,
+    title: "Reporte Updated",
+  };
   constructor(
     // Use service to load Data
     private documentService: DocumentService
@@ -44,11 +46,12 @@ export class AppComponent implements OnInit{
       console.log('init app module');
       console.log(this.documents);
       this.getSingleDocument();
-      this.delete();
-      this.updateUser();
-      this.addUser();
-      this.addUser();
-      this.addUser();
+      this.deleteDocument();
+      this.addDocument();
+      this.addDocument();
+      this.addDocument();
+      this.updateDocument();
+      this.documentService.updateDocumentById(0, this.documentTUpdated).subscribe();
   }
 
   loadDocuments(): void{
@@ -63,28 +66,34 @@ export class AppComponent implements OnInit{
     });
   }
 
-  delete() {
-    this.documentService.deleteDocumentById(3).subscribe(data => {
+  deleteDocument() {
+    this.documentService.deleteDocumentById(5).subscribe(data => {
       this.loadDocuments()
     });
   }
 
-  idtoUpdate = 5;
-  updateUser() {
+  idtoUpdate = 2;
+  updateDocument() {
     this.documentService.getDocumentById(this.idtoUpdate).subscribe(data => {
       this.singleDocument = data;
-      this.singleDocument.title = 'Updated title';
-      this.documentService.updateDocumentById(this.singleDocument).subscribe(data1 => {
+      this.singleDocument.title = 'Updated u.u'
+      this.documentService.updateDocument(this.singleDocument).subscribe(data1 => {
         this.loadDocuments();
       });
     });
   }
 
-  addUser() {
-
-    this.documentService.addDocument(this.documentTemplate).subscribe(data => {
-      this.singleDocument = data;
-      console.log("New document id: " + this.singleDocument.id);
+  addDocument() {
+    const fetchDocument: fetchDocument ={
+      isActive: false,
+      title: "Add template",
+      category: "Create Maker GB",
+      author: "template",
+      dateCreated: "Template",
+      languaje: "English",
+    }
+    this.documentService.addDocument(fetchDocument).subscribe(data => {
+      console.log("New document id: " + fetchDocument);
     });
     this.loadDocuments();
   }

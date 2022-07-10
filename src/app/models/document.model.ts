@@ -17,3 +17,8 @@ export interface Document{
     dateCreated: string;
     languaje: string;
 }
+
+
+export interface fetchDocument extends Omit<Document, 'id'>{}
+
+export interface updateDocument extends Partial<fetchDocument>{}

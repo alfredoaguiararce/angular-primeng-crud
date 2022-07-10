@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { Document } from '../models/document.model';
+import { Document, fetchDocument, updateDocument } from '../models/document.model';
 import { GlobalVariables } from '../classes/global-variables';
 
 /**
@@ -50,10 +50,9 @@ export class DocumentService {
    * @param document, `Document` object created.
    * @returns `Document` object.
    */
-  public addDocument (document: Document): Observable<Document> {
-    document.id=null;
+  public addDocument (document: fetchDocument): Observable<fetchDocument> {
     return this.http.post<Document>(this.apiUrl, document, this.httpOptions).pipe(
-      tap(data => console.log(data)),
+      tap(data => console.log('Add data : ' + data)),
       catchError(this.handleError)
     );
   }
@@ -96,12 +95,19 @@ export class DocumentService {
     );
   }
 
-  public updateDocumentById(document: Document): Observable<Document>{
+  public updateDocument(document: updateDocument): Observable<Document>{
     // Update single document.
-    const url = `${this.apiUrl}/${document.id}`;
     return this.http.put<Document>(this.apiUrl, document, this.httpOptions).pipe(
-      map(() => document),
       catchError(this.handleError)
     );
   }
+
+  // public updateDocumentById(id: number, document: updateDocument): Observable<Document>{
+  //   // // Update single document.
+  //   const url = `${this.apiUrl}/${id}`;
+  //   return this.http.put<Document>(url, document, this.httpOptions).pipe(
+  //     tap(data => console.log('Add data : ' + data)),
+  //     catchError(this.handleError)
+  //   );
+  // }
 }
