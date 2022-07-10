@@ -14,14 +14,7 @@ export class AppComponent implements OnInit{
   // Global variable to manage the loaded data.
   documents: Document[] = [];
   title: string = 'tabla';
-  singleDocument: updateDocument = {
-    isActive: false,
-    title: "Reporte template",
-    category: "Create Maker GB",
-    author: "template",
-    dateCreated: "Template",
-    languaje: "English",
-  };
+  singleDocument: updateDocument;
   
   documentTemplate: updateDocument = {
     isActive: false,
@@ -34,7 +27,11 @@ export class AppComponent implements OnInit{
 
   documentTUpdated: updateDocument = {
     isActive: false,
-    title: "Reporte Updated",
+    title: "Reporte template updated",
+    category: "Create Maker GB",
+    author: "template",
+    dateCreated: "Template",
+    languaje: "English",
   };
   constructor(
     // Use service to load Data
@@ -51,7 +48,7 @@ export class AppComponent implements OnInit{
       this.addDocument();
       this.addDocument();
       this.updateDocument();
-      this.documentService.updateDocumentById(0, this.documentTUpdated).subscribe();
+      // this.documentService.updateDocumentById(0, this.documentTUpdated).subscribe();
   }
 
   loadDocuments(): void{

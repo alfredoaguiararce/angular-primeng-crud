@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DocumentDataInMemService } from './services/document-data-in-mem.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DocumentTableComponent } from './components/document-table/document-table.component';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DocumentTableComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
