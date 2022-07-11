@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DocumentTableComponent } from './components/document-table/document-table.component';
 import { EditorComponent } from './components/editor/editor.component';
+import { CreateeditorComponent } from './createeditor/createeditor.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path:'edit/:id',
         component:EditorComponent,
+      },
+      {
+        path:'add',
+        component: CreateeditorComponent,
       }
     ]
   },

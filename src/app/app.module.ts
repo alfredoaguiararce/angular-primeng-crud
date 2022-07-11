@@ -16,12 +16,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { CardModule, } from 'primeng/card';
+import { CreateeditorComponent } from './createeditor/createeditor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DocumentTableComponent,
-    EditorComponent
+    EditorComponent,
+    CreateeditorComponent
   ],
   imports: [
     BrowserModule,

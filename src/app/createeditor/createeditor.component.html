@@ -1,0 +1,44 @@
+<!-- Center form -->
+<div class="p-d-flex p-justify-center p-ai-center" style="width: 100%; height: 100vh;">
+    <!-- START card -->
+    <p-card header="Editor" subheader="" [style]="{width: 'auto'}" styleClass="p-shadow-24">
+
+        <!-- START Title -->
+        <div class="p-field p-grid">
+            <label for="title" class="p-col-fixed" style="width:100px">Title</label>
+            <div class="p-col">
+                <input id="title" type="text" pInputText value="">  <!--disabled="{{loading}}"-->
+            </div>
+        <!-- END Title -->
+
+        <!-- STAR Author -->
+        </div>
+        <div class="p-field p-grid">
+            <label for="author" class="p-col-fixed" style="width:100px">Author</label>
+            <div class="p-col">
+                <input id="author" type="text" pInputText value="" > <!--[(ngModel)]="author"-->
+            </div>
+        </div>
+        <!-- END Author -->
+
+        <!-- STAR Languaje -->
+        <div class="p-field p-grid">
+            <label for="languaje" class="p-col-fixed" style="width:100px">Languaje</label>
+            <div class="p-col">
+                <input id="languaje" type="text" pInputText value="" > 
+            </div>
+        </div>
+        <!-- END Languaje -->
+    
+        <!-- START Card footer -->
+        <ng-template pTemplate="footer " class="footer" >
+            <div style="width: 100%;" class="p-d-flex p-jc-between p-ai-center">
+                <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" style="margin: 0 1em;"></p-button>
+                <p-button label="Save" icon="pi pi-check" style="margin: 0 1em;"></p-button>
+            </div>
+        </ng-template>    
+        <!-- END Card footer -->
+
+    </p-card>
+    <!-- END card -->
+  </div>

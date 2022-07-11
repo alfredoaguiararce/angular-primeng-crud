@@ -21,7 +21,7 @@
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
                 <p style="width: 100%; font-size: 1.5em; font-family: Arial;" class="p-mr-2 p-text-bold">Lastest published documents</p>
-                <p-button label="ADD" class="p-m-1 p-button-danger" ></p-button>
+                <p-button label="ADD" class="p-m-1 p-button-danger" routerLink="add" ></p-button>
             </div>
         </ng-template>
         <!-- END Header de la tabla -->
@@ -46,7 +46,7 @@
                 <td class="p-text-center">{{doc.title}}</td>
                 <td class="p-text-center">{{doc.category}}</td>
                 <td class="p-text-center">{{doc.author}}</td>
-                <td class="p-text-center">{{doc.dateCreated}}</td>
+                <td class="p-text-center">{{doc.dateCreated | date: 'dd/MM/yyyy'}}</td>
                 <td class="p-text-center">{{doc.languaje}}</td>
                 <td class="p-text-center">
                     <span class="p-text-center">{{doc.isActive}}</span>

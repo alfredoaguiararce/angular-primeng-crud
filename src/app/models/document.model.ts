@@ -14,7 +14,7 @@ export interface Document{
     title: string;
     category: string;
     author: string;
-    dateCreated: string;
+    dateCreated: Date;
     languaje: string;
 }
 

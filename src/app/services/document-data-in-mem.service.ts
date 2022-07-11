@@ -23,7 +23,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
           title: "Report 0",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
-          dateCreated: "17/10/2022",
+          dateCreated: new Date('2024-07-21'),
           languaje: "English",
       },
       {
@@ -32,7 +32,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
           title: "Report 1",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
-          dateCreated: "17/10/2022",
+          dateCreated: new Date('2024-07-21'),
           languaje: "English",
       },
       {
@@ -41,7 +41,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
           title: "Report 2",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
-          dateCreated: "17/10/2022",
+          dateCreated: new Date('2024-07-21'),
           languaje: "English",
       },
       {
@@ -50,7 +50,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
           title: "Report 3",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
-          dateCreated: "17/10/2022",
+          dateCreated:new Date('2024-07-21'),
           languaje: "English",
       },
       {
@@ -59,7 +59,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
           title: "Report 4",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
-          dateCreated: "17/10/2022",
+          dateCreated: new Date('2024-07-21'),
           languaje: "English",
       },
       {
@@ -68,7 +68,7 @@ export class DocumentDataInMemService implements InMemoryDbService{
           title: "Report 5",
           category: "Create Maker GB",
           author: "Alfredo Aguiar",
-          dateCreated: "17/10/2022",
+          dateCreated: new Date('2024-07-21'),
           languaje: "English",
       },
 

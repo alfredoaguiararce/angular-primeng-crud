@@ -22,7 +22,7 @@ export class EditorComponent implements OnInit {
     title: "",
     category: "",
     author: "",
-    dateCreated: "",
+    dateCreated: new Date(''),
     languaje: "",
   }
 
