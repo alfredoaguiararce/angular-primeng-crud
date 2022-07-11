@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { fetchDocument } from '../models/document.model';
-import { DocumentService } from '../services/document.service';
+import { fetchDocument } from '../../models/document.model';
+import { DocumentService } from '../../services/document.service';
 
 @Component({
   selector: 'app-createeditor',

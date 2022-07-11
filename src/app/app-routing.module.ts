@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DocumentTableComponent } from './components/document-table/document-table.component';
 import { EditorComponent } from './components/editor/editor.component';
-import { CreateeditorComponent } from './createeditor/createeditor.component';
+import { CreateeditorComponent } from './components/createeditor/createeditor.component';
+import { CreateFormComponent } from './components/create-form/create-form.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path:'add',
-        component: CreateeditorComponent,
+        component: CreateFormComponent,
       }
     ]
   },
