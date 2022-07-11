@@ -95,6 +95,12 @@ export class DocumentService {
     );
   }
 
+
+  /**
+   * 
+   * @param document - used as the document need to update.
+   * @returns Observable<Document>
+   */
   public updateDocument(document: updateDocument): Observable<Document>{
     // Update single document.
     return this.http.put<Document>(this.apiUrl, document, this.httpOptions).pipe(
