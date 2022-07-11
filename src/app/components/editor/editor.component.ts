@@ -11,8 +11,20 @@ import { Document, fetchDocument } from 'src/app/models/document.model';
 })
 export class EditorComponent implements OnInit {
 
+  public loading: boolean = false;
+  public title: string;
+  public author: string;
+  public languaje: string;
+
   public documentId: string;
-  public editableDocument: fetchDocument;
+  public editableDocument: fetchDocument = {
+    isActive: true,
+    title: "",
+    category: "",
+    author: "",
+    dateCreated: "",
+    languaje: "",
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -20,13 +32,32 @@ export class EditorComponent implements OnInit {
       
     this.documentId = this.route.snapshot.paramMap.get('id');    
     this.documentService.getDocumentById(Number(this.documentId)).subscribe(document =>
-      this.editableDocument = document
-      );
+      {
+        this.editableDocument = document;      
+        this.title = this.editableDocument.title;
+        this.author = this.editableDocument.author;
+        this.languaje = this.editableDocument.languaje;
+      }
+    );
     }
 
   ngOnInit(): void {
     console.log(this.editableDocument)
     console.log(this.documentId)
   }
+
+  updateDocument() {
+    this.loading = !this.loading;
+    this.editableDocument.title = this.title;
+    this.editableDocument.author = this.author;
+    this.editableDocument.languaje = this.languaje;
+    console.log(this.title)
+    console.log(this.author)
+    console.log(this.languaje)
+    this.documentService.updateDocument(this.editableDocument).subscribe(()=>{
+      this.loading = !this.loading;
+    });
+  }
+
 
 }

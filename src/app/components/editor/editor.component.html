@@ -1,1 +1,44 @@
-<p>{{editableDocument.title}}</p>
+<!-- Center form -->
+<div class="p-d-flex p-justify-center">
+    <!-- START card -->
+    <p-card header="Editor" subheader="" [style]="{width: '360px'}" styleClass="p-shadow-24">
+        <!-- <ng-template pTemplate="header">
+            <img alt="Card" src="assets/showcase/images/usercard.png">
+        </ng-template> -->
+
+        <!-- START Title -->
+        <div class="p-field p-grid">
+            <label for="title" class="p-col-fixed" style="width:100px">Title</label>
+            <div class="p-col">
+                <input id="title" type="text" pInputText value="{{title}}" [(ngModel)]="title" disabled="{{loading}}"> 
+            </div>
+        <!-- END Title -->
+
+        <!-- STAR Author -->
+        </div>
+        <div class="p-field p-grid">
+            <label for="author" class="p-col-fixed" style="width:100px">Author</label>
+            <div class="p-col">
+                <input id="author" type="text" pInputText value="{{author}}" [(ngModel)]="author" disabled="{{loading}}"> 
+            </div>
+        </div>
+        <!-- END Author -->
+
+        <!-- STAR Languaje -->
+        <div class="p-field p-grid">
+            <label for="languaje" class="p-col-fixed" style="width:100px">Languaje</label>
+            <div class="p-col">
+                <input id="languaje" type="text" pInputText value="{{languaje}}" [(ngModel)]="languaje" disabled="{{loading}}"> 
+            </div>
+        </div>
+        <!-- END Languaje -->
+    
+        <!-- START Card footer -->
+        <ng-template pTemplate="footer">
+            <p-button label="Save" icon="pi pi-check" (onClick)="updateDocument()"></p-button>
+        </ng-template>    
+        <!-- END Card footer -->
+
+    </p-card>
+    <!-- END card -->
+  </div>

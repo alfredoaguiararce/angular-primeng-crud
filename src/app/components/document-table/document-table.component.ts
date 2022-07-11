@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentService } from 'src/app/services/document.service';
-import { Document } from 'src/app/models/document.model';
+import { Document, fetchDocument } from 'src/app/models/document.model';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
@@ -12,6 +12,7 @@ export class DocumentTableComponent implements OnInit {
 
   public documents: Document[];
   public loading: boolean = true;
+  public modifyDocument: fetchDocument;
 
   constructor(private documentService: DocumentService) {
   }
@@ -29,6 +30,15 @@ export class DocumentTableComponent implements OnInit {
         }
       );
     }, 500);
-}
+  }
 
+  toggleActivate(id: fetchDocument){
+    console.log("ddxsd");
+  }
+
+  updateDocument(document:fetchDocument) {
+    this.modifyDocument = document;
+    this.modifyDocument.isActive = !this.modifyDocument.isActive;
+    this.documentService.updateDocument(this.modifyDocument).subscribe();
+  }
 }

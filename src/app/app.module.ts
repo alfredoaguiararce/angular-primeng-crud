@@ -12,6 +12,10 @@ import { EditorComponent } from './components/editor/editor.component';
 // Primeng modules
 import {ButtonModule} from 'primeng/button';
 import { TableModule } from "primeng/table";
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { CardModule, } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { TableModule } from "primeng/table";
     InMemoryWebApiModule.forRoot(DocumentDataInMemService),
     HttpClientModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    InputTextModule,
+    FormsModule,
+    DropdownModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

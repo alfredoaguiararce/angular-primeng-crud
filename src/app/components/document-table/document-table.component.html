@@ -16,6 +16,7 @@
             <th pSortableColumn="author">Author<p-sortIcon field="author"></p-sortIcon></th>
             <th pSortableColumn="datecreated">Date created<p-sortIcon field="datecreated"></p-sortIcon></th>
             <th pSortableColumn="languaje">Languaje<p-sortIcon field="datecreated"></p-sortIcon></th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     </ng-template>
@@ -28,12 +29,15 @@
             <td>{{doc.author}}</td>
             <td>{{doc.dateCreated}}</td>
             <td>{{doc.languaje}}</td>
+            <td>
+                <span>{{doc.isActive}}</span>
+            </td>
             
             <!-- Actions -->
             <!-- Actions componente -->
             <td class="p-d-flex p-jc-center p-ai-center">
-                <button pButton type="button" label="EDIT" class="p-m-1" routerLink="edit/{{doc.id}}" ></button>
-                <button pButton type="button" label="ACTIVATE" class="p-m-1" ></button>
+                <p-button label="Edit" class="p-m-1" routerLink="edit/{{doc.id}}" ></p-button>
+                <p-button label="active" class="p-m-1" (onClick)="updateDocument(doc)"></p-button>
             </td>
         </tr>
     </ng-template>
