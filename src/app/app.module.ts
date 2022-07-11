@@ -14,22 +14,26 @@ import {ButtonModule} from 'primeng/button';
 import { TableModule } from "primeng/table";
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule, } from 'primeng/card';
-import { CreateeditorComponent } from './createeditor/createeditor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateFormComponent } from './components/create-form/create-form.component';
+import { CreateeditorComponent } from './components/createeditor/createeditor.component';
+import { CascadeSelectModule } from "primeng/cascadeselect";
 
 @NgModule({
   declarations: [
     AppComponent,
     DocumentTableComponent,
     EditorComponent,
-    CreateeditorComponent
+    CreateeditorComponent,
+    CreateFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     // Use this to fake oir API
     InMemoryWebApiModule.forRoot(DocumentDataInMemService),
     HttpClientModule,
@@ -38,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextModule,
     FormsModule,
     DropdownModule,
-    CardModule
+    CardModule,
+    CascadeSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

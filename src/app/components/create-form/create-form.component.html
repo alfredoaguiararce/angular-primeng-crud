@@ -1,0 +1,59 @@
+<form [formGroup]="newDocumentForm" (ngSubmit)="submit()">
+  <!-- Center form -->
+<div class="p-d-flex p-justify-center p-ai-center" style="width: 100%; height: 100vh;">
+    <!-- START card -->
+    <p-card header="Add" subheader="" [style]="{width: 'auto'}" styleClass="p-shadow-24">
+
+        <div class="p-field p-grid">
+            <!-- START Title -->
+            <label for="title" class="p-col-fixed" style="width:100px">Title</label>
+            <div class="p-col">
+                <input id="title" type="text" pInputText formControlName="title">  <!--disabled="{{loading}}"-->
+            </div>
+            <!-- END Title -->
+
+            <!-- START Category -->
+            <label for="author" class="p-col-fixed" style="width:100px">Category</label>
+            <div class="p-col">
+                <input id="author" type="text" pInputText formControlName="category"> <!--[(ngModel)]="author"-->
+            </div>
+            <!-- END Title -->
+        </div>
+        <div class="p-field p-grid">
+            <!-- STAR Author -->
+            <label for="author" class="p-col-fixed" style="width:100px">Author</label>
+            <div class="p-col">
+                <input id="author" type="text" pInputText formControlName="author"> <!--[(ngModel)]="author"-->
+            </div>
+            <!-- END Author -->
+
+            <!-- STAR Date created -->
+            <label for="languaje" class="p-col-fixed" style="width:100px">Date created</label>
+            <div class="p-col">
+                <input id="languaje" type="text" pInputText formControlName="dateCreated"> 
+            </div>
+            <!-- END Date created -->
+        </div>
+
+        <div class="p-field p-grid">
+            <!-- STAR Languaje -->
+            <label for="languaje" class="p-col-fixed" style="width:100px">Languaje</label>
+            <div class="p-col">
+                <input id="languaje" type="text" pInputText formControlName="languaje"> 
+            </div>
+            <!-- END Languaje -->
+        </div>
+
+        <!-- START Card footer -->
+        <ng-template pTemplate="footer " class="footer" >
+            <div style="width: 100%;" class="p-d-flex p-jc-between p-ai-center">
+                <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" style="margin: 0 1em;"></p-button>
+                <p-button label="Save" icon="pi pi-check-circle" style="margin: 0 1em;" type="submit"></p-button>
+            </div>
+        </ng-template>    
+        <!-- END Card footer -->
+
+    </p-card>
+    <!-- END card -->
+  </div>
+</form>
