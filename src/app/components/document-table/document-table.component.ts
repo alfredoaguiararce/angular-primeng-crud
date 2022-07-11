@@ -29,7 +29,7 @@ export class DocumentTableComponent implements OnInit {
           this.loading = false
         }
       );
-    }, 500);
+    }, 1000);
   }
 
   toggleActivate(id: fetchDocument){

@@ -22,7 +22,7 @@ export class EditorComponent implements OnInit {
     title: "",
     category: "",
     author: "",
-    dateCreated: new Date(''),
+    dateCreated: new Date(),
     languaje: "",
   }
 
@@ -53,6 +53,8 @@ export class EditorComponent implements OnInit {
     this.editableDocument.title = this.title;
     this.editableDocument.author = this.author;
     this.editableDocument.languaje = this.languaje;
+    this.editableDocument.dateCreated = new Date();
+    
     console.log(this.title)
     console.log(this.author)
     console.log(this.languaje)

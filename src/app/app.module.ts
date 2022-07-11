@@ -17,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { CardModule, } from 'primeng/card';
 import { CreateeditorComponent } from './createeditor/createeditor.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CreateeditorComponent } from './createeditor/createeditor.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     // Use this to fake oir API
     InMemoryWebApiModule.forRoot(DocumentDataInMemService),
     HttpClientModule,
