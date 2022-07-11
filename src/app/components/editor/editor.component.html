@@ -1,5 +1,6 @@
 <!-- Center form -->
-<div class="p-d-flex p-justify-center">
+
+<div class="p-d-flex p-justify-center p-ai-center" style="width: 100%; height: 100vh;">
     <!-- START card -->
     <p-card header="Editor" subheader="" [style]="{width: '360px'}" styleClass="p-shadow-24">
         <!-- <ng-template pTemplate="header">
@@ -35,7 +36,10 @@
     
         <!-- START Card footer -->
         <ng-template pTemplate="footer">
-            <p-button label="Save" icon="pi pi-check" (onClick)="updateDocument()"></p-button>
+            <div style="width: 100%;" class="p-d-flex p-jc-between p-ai-center">
+            <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" style="margin: 0 1em;"></p-button>
+            <p-button label="Save" icon="pi pi-check" (onClick)="updateDocument()" style="margin: 0 1em;"></p-button>
+        </div>
         </ng-template>    
         <!-- END Card footer -->
 

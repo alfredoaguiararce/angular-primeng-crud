@@ -1,44 +1,67 @@
 <!-- este componente se encarga de la logica para ordenar la tabla  -->
-<!-- Header de la tabla  -->
-<h1>My documents</h1>
-
 <!-- itera sobre la variable del componente 'documents' y lo envia al componente item para renderizarlo -->
-
 <!-- Se pasa el valor del arreglo "documents", y se configura para realizar una paginacion -->
-<p-table [value]="documents" [lazy]="true" (onLazyLoad)="loadDocuments($event)" [loading]="loading" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
 
-    <!-- Agregamos la cabecera de la tabla -->
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="title">Title<p-sortIcon field="title"></p-sortIcon></th>
-            <th pSortableColumn="category">Category/App<p-sortIcon field="category"></p-sortIcon></th>
-            <th pSortableColumn="author">Author<p-sortIcon field="author"></p-sortIcon></th>
-            <th pSortableColumn="datecreated">Date created<p-sortIcon field="datecreated"></p-sortIcon></th>
-            <th pSortableColumn="languaje">Languaje<p-sortIcon field="datecreated"></p-sortIcon></th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </ng-template>
+<div class="p-d-flex p-jc-center p-ai-center " style="width: 100%;">
+<!-- START Documents Table -->
+<p-table 
+    [value]="documents" 
+    [lazy]="true" 
+    (onLazyLoad)="loadDocuments($event)" 
+    [loading]="loading" 
+    [paginator]="true" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+    [rowsPerPageOptions]="[10,25,50]"
+    class="p-d-flex p-jc-center p-ai-center table"
+    >
 
-    <!-- Mostramos la data en la tabla -->
-    <ng-template pTemplate="body" let-doc>
-        <tr>
-            <td>{{doc.title}}</td>
-            <td>{{doc.category}}</td>
-            <td>{{doc.author}}</td>
-            <td>{{doc.dateCreated}}</td>
-            <td>{{doc.languaje}}</td>
-            <td>
-                <span>{{doc.isActive}}</span>
-            </td>
-            
-            <!-- Actions -->
-            <!-- Actions componente -->
-            <td class="p-d-flex p-jc-center p-ai-center">
-                <p-button label="Edit" class="p-m-1" routerLink="edit/{{doc.id}}" ></p-button>
-                <p-button label="active" class="p-m-1" (onClick)="updateDocument(doc)"></p-button>
-            </td>
-        </tr>
-    </ng-template>
+        <!-- START Header de la tabla -->
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <p style="width: 100%; font-size: 1.5em; font-family: Arial;" class="p-mr-2 p-text-bold">Lastest published documents</p>
+                <p-button label="ADD" class="p-m-1 p-button-danger" ></p-button>
+            </div>
+        </ng-template>
+        <!-- END Header de la tabla -->
+
+        <!-- START Cabecera de la tabla -->
+        <ng-template pTemplate="header">
+            <tr>
+                <th class="p-text-center" pSortableColumn="title">Title<p-sortIcon field="title"></p-sortIcon></th>
+                <th class="p-text-center" pSortableColumn="category">Category/App<p-sortIcon field="category"></p-sortIcon></th>
+                <th class="p-text-center" pSortableColumn="author">Author<p-sortIcon field="author"></p-sortIcon></th>
+                <th class="p-text-center" pSortableColumn="datecreated">Date created<p-sortIcon field="datecreated"></p-sortIcon></th>
+                <th class="p-text-center" pSortableColumn="languaje">Languaje<p-sortIcon field="datecreated"></p-sortIcon></th>
+                <th class="p-text-center" >Status</th>
+                <th class="p-text-center" >Actions</th>
+            </tr>
+        </ng-template>
+        <!-- END Cabecera de la tabla -->
+
+        <!-- STAR Filas de la tabla -->
+        <ng-template pTemplate="body" let-doc>
+            <tr>
+                <td class="p-text-center">{{doc.title}}</td>
+                <td class="p-text-center">{{doc.category}}</td>
+                <td class="p-text-center">{{doc.author}}</td>
+                <td class="p-text-center">{{doc.dateCreated}}</td>
+                <td class="p-text-center">{{doc.languaje}}</td>
+                <td class="p-text-center">
+                    <span class="p-text-center">{{doc.isActive}}</span>
+                </td>
+                
+                <!-- Actions -->
+                <!-- Actions componente -->
+                <td class="p-d-flex p-jc-center p-ai-center">
+                    <p-button label="Edit" class="p-m-1" routerLink="edit/{{doc.id}}" ></p-button>
+                    <p-button label="active" class="p-m-1" (onClick)="updateDocument(doc)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+        <!-- STAR Filas de la tabla -->
+
 </p-table>
+<!-- START Documents Table -->
+</div>

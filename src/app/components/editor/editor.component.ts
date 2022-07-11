@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { GlobalVariables } from 'src/app/classes/global-variables';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DocumentService } from 'src/app/services/document.service';
 import { Document, fetchDocument } from 'src/app/models/document.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-editor',
@@ -28,7 +28,8 @@ export class EditorComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private documentService: DocumentService) { 
+    private documentService: DocumentService,
+    private router: Router) { 
       
     this.documentId = this.route.snapshot.paramMap.get('id');    
     this.documentService.getDocumentById(Number(this.documentId)).subscribe(document =>
@@ -47,6 +48,7 @@ export class EditorComponent implements OnInit {
   }
 
   updateDocument() {
+    // deactivate the inputs
     this.loading = !this.loading;
     this.editableDocument.title = this.title;
     this.editableDocument.author = this.author;
@@ -55,7 +57,10 @@ export class EditorComponent implements OnInit {
     console.log(this.author)
     console.log(this.languaje)
     this.documentService.updateDocument(this.editableDocument).subscribe(()=>{
+      // reactivate the inputs
       this.loading = !this.loading;
+      // send back to /documents
+      this.router.navigate(['/documents']);
     });
   }
 
