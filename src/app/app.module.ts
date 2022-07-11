@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { DocumentTableComponent } from './components/document-table/document-table.component';
 import { EditorComponent } from './components/editor/editor.component';
 
+// Primeng modules
+import {ButtonModule} from 'primeng/button';
+import { TableModule } from "primeng/table";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,9 @@ import { EditorComponent } from './components/editor/editor.component';
     AppRoutingModule,
     // Use this to fake oir API
     InMemoryWebApiModule.forRoot(DocumentDataInMemService),
-    HttpClientModule
+    HttpClientModule,
+    TableModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

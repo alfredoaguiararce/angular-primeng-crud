@@ -18,7 +18,7 @@ const routes: Routes = [
         component: DocumentTableComponent
       },
       {
-        path:'editor/:id',
+        path:'edit/:id',
         component:EditorComponent,
       }
     ]
