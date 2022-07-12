@@ -30,7 +30,7 @@
             <!-- STAR Date created -->
             <label for="languaje" class="p-col-fixed" style="width:100px">Date created</label>
             <div class="p-col">
-                <input id="languaje" type="text" pInputText formControlName="dateCreated"> 
+                <input id="languaje" type="date" pInputText formControlName="dateCreated"> 
             </div>
             <!-- END Date created -->
         </div>
@@ -47,8 +47,9 @@
         <!-- START Card footer -->
         <ng-template pTemplate="footer " class="footer" >
             <div style="width: 100%;" class="p-d-flex p-jc-between p-ai-center">
-                <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" style="margin: 0 1em;"></p-button>
-                <p-button label="Save" icon="pi pi-check-circle" style="margin: 0 1em;" type="submit"></p-button>
+                <!-- style="margin: 0 1em;" -->
+                <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" ></p-button>
+                <p-button label="Save" icon="pi pi-check-circle"  type="submit"></p-button>
             </div>
         </ng-template>    
         <!-- END Card footer -->

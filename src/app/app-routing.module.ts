@@ -4,6 +4,7 @@ import { DocumentTableComponent } from './components/document-table/document-tab
 import { EditorComponent } from './components/editor/editor.component';
 import { CreateeditorComponent } from './components/createeditor/createeditor.component';
 import { CreateFormComponent } from './components/create-form/create-form.component';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
       },
       {
         path:'edit/:id',
-        component:EditorComponent,
+        component: EditFormComponent,
       },
       {
         path:'add',
