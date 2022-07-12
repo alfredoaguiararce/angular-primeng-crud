@@ -15,7 +15,8 @@
             <!-- START Category -->
             <label for="author" class="p-col-fixed" style="width:100px">Category</label>
             <div class="p-col">
-                <input id="author" type="text" pInputText formControlName="category"> <!--[(ngModel)]="author"-->
+                <p-dropdown [options]="categories" placeholder="Select category" optionLabel="item" [showClear]="true" formControlName="category"></p-dropdown>
+                <!-- <input id="author" type="text" pInputText formControlName="category"> -->
             </div>
             <!-- END Title -->
         </div>
@@ -40,7 +41,7 @@
             <label for="languaje" class="p-col-fixed" style="width:100px">Languaje</label>
             <div class="p-col">
                 <!-- <input id="languaje" type="text" pInputText formControlName="languaje">  -->
-                <p-dropdown [options]="lenguages" [(ngModel)]="selectedlenguage" placeholder="Select lenguage" optionLabel="languaje" [showClear]="true" formControlName="languaje"></p-dropdown>
+                <p-dropdown [options]="lenguages" placeholder="Select lenguage" optionLabel="item" [showClear]="true" formControlName="languaje"></p-dropdown>
             </div>
             <!-- END Languaje -->
         </div>

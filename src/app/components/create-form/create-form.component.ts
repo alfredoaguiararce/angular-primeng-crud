@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fetchDocument } from 'src/app/models/document.model';
 import { DocumentService } from 'src/app/services/document.service';
-import { Languaje } from 'src/app/models/options.model';
+import { Menu } from 'src/app/models/options.model';
 
 /**
  * Use this component for create new obj, with a form.
@@ -15,9 +15,10 @@ import { Languaje } from 'src/app/models/options.model';
 })
 export class CreateFormComponent implements OnInit {
 
-  lenguages: Languaje[];
 
-  selectedlenguage: Languaje;
+  // Add arrays for the dropdowns.
+  lenguages: Menu[];
+  categories: Menu[];
   
 
   // Create a new DTO for document
@@ -37,8 +38,14 @@ export class CreateFormComponent implements OnInit {
     private router: Router) { }
   ngOnInit(): void {
     this.lenguages = [
-      { languaje: 'English'},
-      { languaje: 'Spanish'},
+      { item: 'English'},
+      { item: 'Spanish'},
+
+    ];
+    
+    this.categories = [
+      { item: 'Create Maker GB'},
+      { item: 'OnliDocs'},
 
     ];
   }
@@ -69,9 +76,9 @@ export class CreateFormComponent implements OnInit {
   private createNewDocument(): void {
     this.newDocument = {
       title: this.newDocumentForm.value.title,
-      category: this.newDocumentForm.value.category,
+      category: this.newDocumentForm.value.category.item,
       author: this.newDocumentForm.value.author,
-      languaje: this.newDocumentForm.value.languaje.languaje,
+      languaje: this.newDocumentForm.value.languaje.item,
       dateCreated: this.newDocumentForm.value.dateCreated,
       isActive: true,
     };
