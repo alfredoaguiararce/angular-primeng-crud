@@ -39,7 +39,8 @@
             <!-- STAR Languaje -->
             <label for="languaje" class="p-col-fixed" style="width:100px">Languaje</label>
             <div class="p-col">
-                <input id="languaje" type="text" pInputText formControlName="languaje"> 
+                <!-- <input id="languaje" type="text" pInputText formControlName="languaje">  -->
+                <p-dropdown [options]="lenguages" [(ngModel)]="selectedlenguage" placeholder="Select lenguage" optionLabel="languaje" [showClear]="true" formControlName="languaje"></p-dropdown>
             </div>
             <!-- END Languaje -->
         </div>

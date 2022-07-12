@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fetchDocument } from 'src/app/models/document.model';
 import { DocumentService } from 'src/app/services/document.service';
+import { Languaje } from 'src/app/models/options.model';
 
 /**
  * Use this component for create new obj, with a form.
@@ -13,6 +14,11 @@ import { DocumentService } from 'src/app/services/document.service';
   styleUrls: ['./create-form.component.css']
 })
 export class CreateFormComponent implements OnInit {
+
+  lenguages: Languaje[];
+
+  selectedlenguage: Languaje;
+  
 
   // Create a new DTO for document
   private newDocument: fetchDocument;
@@ -30,6 +36,11 @@ export class CreateFormComponent implements OnInit {
     private documentService: DocumentService,
     private router: Router) { }
   ngOnInit(): void {
+    this.lenguages = [
+      { languaje: 'English'},
+      { languaje: 'Spanish'},
+
+    ];
   }
 
   /**
@@ -60,7 +71,7 @@ export class CreateFormComponent implements OnInit {
       title: this.newDocumentForm.value.title,
       category: this.newDocumentForm.value.category,
       author: this.newDocumentForm.value.author,
-      languaje: this.newDocumentForm.value.languaje,
+      languaje: this.newDocumentForm.value.languaje.languaje,
       dateCreated: this.newDocumentForm.value.dateCreated,
       isActive: true,
     };
