@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { fetchDocument } from 'src/app/models/document.model';
 import { DocumentService } from 'src/app/services/document.service';
 
+/**
+ * Use this component for create new obj, with a form.
+ */
 @Component({
   selector: 'app-create-form',
   templateUrl: './create-form.component.html',
@@ -11,7 +14,10 @@ import { DocumentService } from 'src/app/services/document.service';
 })
 export class CreateFormComponent implements OnInit {
 
+  // Create a new DTO for document
   private newDocument: fetchDocument;
+
+  // Use this template for prevent crashes in UI.
   newDocumentForm = new FormGroup({
     title: new FormControl('',Validators.required),
     category : new FormControl('', Validators.required),
@@ -26,19 +32,14 @@ export class CreateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit() 
+  /**
+   * Use this method to create and save a new obj. Document.
+   */
+  public submit(): void
   {
     if(this.newDocumentForm.valid)
     {
-      this.newDocument = {
-        title: this.newDocumentForm.value.title,
-        category: this.newDocumentForm.value.category,
-        author: this.newDocumentForm.value.author,
-        languaje: this.newDocumentForm.value.languaje,
-        dateCreated: this.newDocumentForm.value.dateCreated,
-        isActive: true,
-      };
-
+      this.createNewDocument();
       this.documentService.addDocument(this.newDocument).subscribe(()=>{
         console.log('New Document created.')
         console.log(this.newDocumentForm.value);
@@ -49,5 +50,19 @@ export class CreateFormComponent implements OnInit {
     {
       alert("Please complete the information");
     }
+  }
+
+  /**
+   * Use form to create a new obj. Document.
+   */
+  private createNewDocument(): void {
+    this.newDocument = {
+      title: this.newDocumentForm.value.title,
+      category: this.newDocumentForm.value.category,
+      author: this.newDocumentForm.value.author,
+      languaje: this.newDocumentForm.value.languaje,
+      dateCreated: this.newDocumentForm.value.dateCreated,
+      isActive: true,
+    };
   }
 }

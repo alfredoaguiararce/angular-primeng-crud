@@ -23,13 +23,15 @@ import { DatePipe } from '@angular/common';
 import {RippleModule} from 'primeng/ripple';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DocumentTableComponent,
     CreateFormComponent,
-    EditFormComponent
+    EditFormComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
