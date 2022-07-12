@@ -2,16 +2,13 @@
 <!-- itera sobre la variable del componente 'documents' y lo envia al componente item para renderizarlo -->
 <!-- Se pasa el valor del arreglo "documents", y se configura para realizar una paginacion -->
 
-<div class="p-d-flex p-jc-center p-ai-center " style="width: 100%;">
+<div class="p-d-flex p-jc-center p-ai-center " style="width: 100%; height: 100vh; background: #ccc;">
 <!-- START Documents Table -->
 <p-table 
-    [value]="documents" 
-    [lazy]="true" 
-    (onLazyLoad)="loadDocuments($event)" 
-    [loading]="loading" 
-    [paginator]="true" 
-    [rows]="10" 
-    responsiveLayout="stack"
+    [value]="documents" [lazy]="true" (onLazyLoad)="loadDocuments($event)" [loading]="loading" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" [scrollable]="true" scrollHeight="500px" 
+    [style]="{width:'85%'}" [resizableColumns]="true" styleClass="p-datatable-gridlines p-datatable-sm" class="p-d-flex p-jc-center p-ai-center"
+    selectionMode="single"
     >
 
         <!-- START Header de la tabla -->
