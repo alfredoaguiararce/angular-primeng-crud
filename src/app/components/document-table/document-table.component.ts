@@ -10,6 +10,7 @@ import { LazyLoadEvent } from 'primeng/api';
 })
 export class DocumentTableComponent implements OnInit {
 
+  checked: boolean;
   public documents: Document[];
   public loading: boolean = true;
   public modifyDocument: fetchDocument;
@@ -22,21 +23,15 @@ export class DocumentTableComponent implements OnInit {
 
   loadDocuments(event: LazyLoadEvent) {
     this.loading = true;
-    setTimeout(() => {
-      this.documentService.getDocuments().subscribe(
-        data => {
-          this.documents = data,
-          this.loading = false
-        }
-      );
-    }, 1000);
+    this.documentService.getDocuments().subscribe(
+      data => {
+        this.documents = data,
+        this.loading = false
+      }
+    );
   }
 
-  toggleActivate(id: fetchDocument){
-    console.log("ddxsd");
-  }
-
-  updateDocument(document:fetchDocument) {
+  toggleActivate(document:fetchDocument) {
     this.modifyDocument = document;
     this.modifyDocument.isActive = !this.modifyDocument.isActive;
     this.documentService.updateDocument(this.modifyDocument).subscribe();

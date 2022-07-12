@@ -11,10 +11,7 @@
     [loading]="loading" 
     [paginator]="true" 
     [rows]="10" 
-    [showCurrentPageReport]="true" 
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
-    [rowsPerPageOptions]="[5,10,20]"
-    class="p-d-flex p-jc-center p-ai-center table"
+    responsiveLayout="stack"
     >
 
         <!-- START Header de la tabla -->
@@ -56,7 +53,7 @@
                 <!-- Actions componente -->
                 <td class="p-d-flex p-jc-center p-ai-center">
                     <p-button label="Edit" class="p-m-1" routerLink="edit/{{doc.id}}" ></p-button>
-                    <p-button label="active" class="p-m-1" (onClick)="updateDocument(doc)"></p-button>
+                    <p-button label="active" class="p-m-1" (onClick)="toggleActivate(doc)"></p-button>
                 </td>
             </tr>
         </ng-template>

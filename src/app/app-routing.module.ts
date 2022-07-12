@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DocumentTableComponent } from './components/document-table/document-table.component';
-import { EditorComponent } from './components/editor/editor.component';
-import { CreateeditorComponent } from './components/createeditor/createeditor.component';
 import { CreateFormComponent } from './components/create-form/create-form.component';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 

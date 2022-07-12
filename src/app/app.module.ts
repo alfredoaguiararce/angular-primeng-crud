@@ -7,7 +7,6 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DocumentDataInMemService } from './services/document-data-in-mem.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DocumentTableComponent } from './components/document-table/document-table.component';
-import { EditorComponent } from './components/editor/editor.component';
 
 // Primeng modules
 import {ButtonModule} from 'primeng/button';
@@ -18,17 +17,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule, } from 'primeng/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateFormComponent } from './components/create-form/create-form.component';
-import { CreateeditorComponent } from './components/createeditor/createeditor.component';
 import { CascadeSelectModule } from "primeng/cascadeselect";
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { DatePipe } from '@angular/common';
+import {RippleModule} from 'primeng/ripple';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 
 @NgModule({
   declarations: [
     AppComponent,
     DocumentTableComponent,
-    EditorComponent,
-    CreateeditorComponent,
     CreateFormComponent,
     EditFormComponent
   ],
@@ -46,7 +45,10 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     DropdownModule,
     CardModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    RippleModule,
+    InputSwitchModule,
+    ToggleButtonModule   
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
