@@ -7,7 +7,7 @@
 <p-table 
     [value]="documents" [lazy]="true" (onLazyLoad)="loadDocuments($event)" [loading]="loading" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" [scrollable]="true" scrollHeight="500px" 
-    [style]="{width:'85%'}" [resizableColumns]="true" styleClass="p-datatable-gridlines p-datatable-sm" class="p-d-flex p-jc-center p-ai-center"
+    [style]="{width:'85%'}" [resizableColumns]="true" styleClass="p-datatable-gridlines p-datatable-sm p-shadow-24" class="p-d-flex p-jc-center p-ai-center "
     selectionMode="single"
     >
 
