@@ -12,13 +12,6 @@ import { DocumentService } from 'src/app/services/document.service';
 export class CreateFormComponent implements OnInit {
 
   private newDocument: fetchDocument;
-
-  constructor(
-    private documentService: DocumentService,
-    private router: Router) { }
-  ngOnInit(): void {
-  }
-
   newDocumentForm = new FormGroup({
     title: new FormControl('',Validators.required),
     category : new FormControl('', Validators.required),
@@ -26,6 +19,12 @@ export class CreateFormComponent implements OnInit {
     dateCreated: new FormControl('', Validators.required),
     languaje: new FormControl('', Validators.required),
   });
+
+  constructor(
+    private documentService: DocumentService,
+    private router: Router) { }
+  ngOnInit(): void {
+  }
 
   submit() 
   {
@@ -36,7 +35,7 @@ export class CreateFormComponent implements OnInit {
         category: this.newDocumentForm.value.category,
         author: this.newDocumentForm.value.author,
         languaje: this.newDocumentForm.value.languaje,
-        dateCreated: new Date(),
+        dateCreated: this.newDocumentForm.value.dateCreated,
         isActive: true,
       };
 

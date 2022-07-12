@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateFormComponent } from './components/create-form/create-form.component';
 import { CreateeditorComponent } from './components/createeditor/createeditor.component';
 import { CascadeSelectModule } from "primeng/cascadeselect";
+import { EditFormComponent } from './components/edit-form/edit-form.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CascadeSelectModule } from "primeng/cascadeselect";
     DocumentTableComponent,
     EditorComponent,
     CreateeditorComponent,
-    CreateFormComponent
+    CreateFormComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { CascadeSelectModule } from "primeng/cascadeselect";
     CardModule,
     CascadeSelectModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
