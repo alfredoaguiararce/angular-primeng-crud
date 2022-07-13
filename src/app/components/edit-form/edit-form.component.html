@@ -56,9 +56,10 @@
         <!-- START Card footer -->
         <ng-template pTemplate="footer">
             <div style="width: 100%;" class="p-d-flex p-jc-between p-ai-center">
-            <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" ></p-button>
-            <p-button label="Save" icon="pi pi-check" type="submit" ></p-button>
-        </div>
+                <p-button label="Back" icon="pi pi-caret-left"  routerLink="/" ></p-button>
+                <p-button label="Delete" icon="pi pi-trash" (click)="deleteDocument()" ></p-button>
+                <p-button label="Save" icon="pi pi-check" type="submit" ></p-button>
+            </div>
         </ng-template>    
         <!-- END Card footer -->
 

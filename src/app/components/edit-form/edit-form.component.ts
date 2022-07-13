@@ -115,6 +115,13 @@ export class EditFormComponent implements OnInit {
   }
 
 
+  deleteDocument(): void{
+    this.documentService.deleteDocumentById(Number(this.documentId)).subscribe(
+      data => {
+        this.router.navigate(['']);
+      }
+    )
+  }
 
 
 }

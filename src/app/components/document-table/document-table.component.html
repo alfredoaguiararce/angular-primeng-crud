@@ -14,8 +14,8 @@
         <!-- START Header de la tabla -->
         <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
-                <p style="width: 100%; font-size: 1.5em; font-family: Arial;" class="p-mr-2 p-text-bold">Lastest published documents</p>
-                <p-button label="ADD" class="p-m-1 p-button-danger" routerLink="add" ></p-button>
+                <p style="width: 100%; font-size: 1.5em; font-family: Arial; margin-left: 2em;" class="p-mr-2 p-text-bold">Lastest published documents</p>
+                <p-button label="ADD" class="p-mx-6 p-button-danger" routerLink="add" ></p-button>
             </div>
         </ng-template>
         <!-- END Header de la tabla -->
@@ -49,8 +49,10 @@
                 <!-- Actions -->
                 <!-- Actions componente -->
                 <td class="p-d-flex p-jc-center p-ai-center">
-                    <p-button label="Edit" class="p-m-1" routerLink="edit/{{doc.id}}" ></p-button>
-                    <p-button label="active" class="p-m-1" (onClick)="toggleActivate(doc)"></p-button>
+                    <button pButton title="Edit" pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-outlined p-mx-2" routerLink="edit/{{doc.id}}" ></button>
+                    <button pButton title="Activate" pRipple type="button" icon="pi pi-heart" class="p-button-rounded p-button-outlined p-mx-2" (click)="toggleActivate(doc)"></button>
+                    <!-- <p-button label="Edit" class="p-m-1" ></p-button>
+                    <p-button label="active" class="p-m-1" (onClick)="toggleActivate(doc)"></p-button> -->
                 </td>
             </tr>
         </ng-template>
